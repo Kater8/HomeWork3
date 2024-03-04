@@ -1,4 +1,5 @@
 import Foundation
+import Security
 
 /*
  
@@ -435,10 +436,13 @@ if let mostExpensiveProduct = findMostExpensiveProduct(withProcessor: "Intel", i
  створити змінну типу створенного enum з якимось із значень
  
  */
+print("\n")
 
-
-
-
+enum ProcessorType: String{
+    case intel = "Intel"
+    case amd = "AMD"
+}
+var processorType: ProcessorType = .intel
 
 
 /*
@@ -453,8 +457,12 @@ if let mostExpensiveProduct = findMostExpensiveProduct(withProcessor: "Intel", i
  створити змінну типу створенного enum з якимось із значень
  
  */
-
-
+enum Currency: String{
+    case uah = "UAH"
+    case usd = "USD"
+    case eur = "EUR"
+}
+var currencyType: Currency = .uah
 
 
 
