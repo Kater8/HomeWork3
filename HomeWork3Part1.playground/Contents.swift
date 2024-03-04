@@ -311,9 +311,21 @@ for switchcounter in 0..<(cart.count){
  !! не забудьте перевірити роботу функції викликавши її
  
  */
+print("\n")
+print("------------------- Intel -------------------------------")
+func productInfoIntel() {
+    for intelcounter in 0..<(cart.count){
+        let productInfo = cart[intelcounter]
+        let productName = productInfo.0
+        let processor = productInfo.4
+        switch processor {
+        case "Intel": print("\(intelcounter+1) Product Name : \(productName)")
+        default: break
+        }
+    }
+}
 
-
-
+productInfoIntel()
 
 /*
  
@@ -343,8 +355,20 @@ for switchcounter in 0..<(cart.count){
  !! не забудьте перевірити роботу функції викликавши її з максимальним значенням на свій розсуд для перевірки
  
  */
-
-
+print("\n")
+print("-------------------Товари з ціною менше 4500.00  -------------------------------")
+func product(maxPrice: Double) {
+    for counter in 0..<(cart.count) {
+        let productInfo = cart[counter]
+        let productName = productInfo.0
+        let price = productInfo.1
+        let currency = productInfo.2
+        if price < maxPrice {
+        print("\(counter+1) Product Name : \(productName), Price: \(price) \(currency)")
+        }
+    }
+}
+product(maxPrice: 4500.0)
 
 
 
@@ -371,9 +395,28 @@ for switchcounter in 0..<(cart.count){
  
  */
 
+func findMostExpensiveProduct(withProcessor processor: String, in cart: [ProductInfo]) -> ProductInfo? {
+    var maxPrice: Double = 0
+    var mostExpensiveProduct: ProductInfo? = nil
+    
+    for productInfo in cart {
+        let price = productInfo.1
+        let processor = productInfo.4
+        
+        if processor == processor && price > maxPrice {
+            maxPrice = price
+            mostExpensiveProduct = productInfo
+        }
+    }
+    
+    return mostExpensiveProduct
+}
 
-
-
+if let mostExpensiveProduct = findMostExpensiveProduct(withProcessor: "Intel", in: cart) {
+    print("\n")
+    print("------------------- Найдорожчий товар за процесором \(mostExpensiveProduct.4) -------------------------------")
+    print("Назва товару: \(mostExpensiveProduct.0), Ціна: \(mostExpensiveProduct.1) \(mostExpensiveProduct.2)")
+}
 
 /*
  
