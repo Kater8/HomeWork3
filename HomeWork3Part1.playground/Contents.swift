@@ -484,12 +484,13 @@ var currencyType: Currency = .uah
  створити змінну типу MotherBoard і спробувати поміняти їй інші значення
  
  */
-
-
-
-
-
-
+struct MotherBoard{
+    var socet: String
+    var processor: ProcessorType
+}
+var motherBoard: MotherBoard = .init(socet: "sAM4" , processor: .amd)
+motherBoard.socet = "s1151"
+motherBoard.processor = .intel
 /*
  
  Пункт 4.2
@@ -504,8 +505,15 @@ var currencyType: Currency = .uah
  створити змінну типу Product і спробувати поміняти їй інші значення
  
  */
-
-
-
-
-
+class Product {
+    var name:String = "Asus Prime H310M-E"
+    var price:Double = 1698.0
+    var currency:Currency = .uah
+    var motherBoard:MotherBoard = .init(socet: "s1151", processor: .intel)
+}
+var product = Product.init()
+product.name = "Biostar H310MHP"
+product.price = 2000.0
+product.currency = .usd
+product.motherBoard = .init(socet: "sAM4" , processor: .intel)
+product.motherBoard.processor = .amd
